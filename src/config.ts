@@ -14,7 +14,7 @@ export interface Proxy extends Options {
 }
 
 const config: Config = {
-  allowedDomains: ['http://localhost:5500', 'http://127.0.0.1:5500'],
+  allowedDomains: ['http://localhost:5500', 'http://127.0.0.1:5500', '*'],
   proxies: [
     {
       route: '/quote',
