@@ -19,11 +19,9 @@ const config: Config = {
     {
       route: '/quote',
       allowedMethods: ['GET'],
-      target: 'http://api.forismatic.com/api/1.0',
-      queryparams: {
-        method: 'getQuote',
-        lang: 'en',
-        format: 'json',
+      target: 'https://api.airtable.com/v0/appbg8J7uh1qMZme5/quotes',
+      headers: {
+        Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
       },
     },
   ],
