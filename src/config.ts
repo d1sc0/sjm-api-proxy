@@ -22,7 +22,9 @@ const config: Config = {
       allowedMethods: ['GET'],
       target:
         'http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json',
-      queryparams: {},
+      headers: {
+      Access-Control-Allow-Origin: '*',  
+      },
     },
     {
       route: '/ipinfo',
