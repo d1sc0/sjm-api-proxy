@@ -20,12 +20,9 @@ const config: Config = {
     {
       route: '/quote',
       allowedMethods: ['GET'],
-      target: 'http://api.forismatic.com/api/1.0/',
-      queryparams: {
-        method: getQuote,
-        lang: encodeURI,
-        format: json,
-      },
+      target:
+        'http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json',
+      queryparams: {},
     },
     {
       route: '/ipinfo',
