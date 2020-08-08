@@ -1,5 +1,6 @@
 import { Options } from 'http-proxy-middleware';
 import { ParsedUrlQueryInput } from 'querystring';
+import { json } from 'express';
 
 export interface Config {
   allowedDomains: string[];
@@ -14,14 +15,16 @@ export interface Proxy extends Options {
 }
 
 const config: Config = {
-  allowedDomains: ['https://www.mauriciorobayo.com'],
+  allowedDomains: ['http://localhost:5000'],
   proxies: [
     {
-      route: '/weather',
+      route: '/quote',
       allowedMethods: ['GET'],
-      target: 'https://api.openweathermap.org/data/2.5/weather',
+      target: 'http://api.forismatic.com/api/1.0/',
       queryparams: {
-        appid: process.env.WEATHER_API_KEY,
+        method: getQuote,
+        lang: encodeURI,
+        format: json,
       },
     },
     {
