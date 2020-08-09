@@ -4,7 +4,6 @@ const cors = require('cors');
 const request = require('request');
 const dotenv = require('dotenv');
 dotenv.config();
-const app = express();
 
 // set dynamic CORS whitelist
 var whitelist = [
