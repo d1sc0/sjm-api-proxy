@@ -5,12 +5,8 @@ const request = require('request');
 const dotenv = require('dotenv');
 dotenv.config();
 
-// set dynamic CORS whitelist
-var whitelist = [
-  'http://127.0.0.1',
-  'http://localhost',
-  'http://localhost:5500',
-];
+// set dynamic CORS whitelist - UPDATE cors() WITH cors(CorsOptions) to restrict
+var whitelist = ['http://somesite.som', 'http://localhost:5500'];
 var corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
@@ -22,7 +18,7 @@ var corsOptions = {
 };
 
 // route for /api/joke/random
-router.get('/random', cors(corsOptions), (req, res, next) => {
+router.get('/random', cors(), (req, res, next) => {
   request(
     { url: 'https://joke-api-strict-cors.appspot.com/jokes/random' },
     (error, response, body) => {
