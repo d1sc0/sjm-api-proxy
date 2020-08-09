@@ -52,10 +52,11 @@ app.get('/quote', cors(corsOptions), (req, res, next) => {
 });
 
 //route for airtable API
-app.get('/airtable', cors(corsOptions), (req, res, next) => {
+app.get('/quotecount', cors(corsOptions), (req, res, next) => {
   request(
     {
-      url: 'https://api.airtable.com/v0/appbg8J7uh1qMZme5/quotes',
+      url:
+        'https://api.airtable.com/v0/appbg8J7uh1qMZme5/quoteStats/?fields%5B%5D=count',
       headers: {
         Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
       },
