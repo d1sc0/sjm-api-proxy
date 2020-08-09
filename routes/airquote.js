@@ -6,7 +6,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 // set dynamic CORS whitelist - UPDATE cors() WITH cors(CorsOptions) to restrict
-var whitelist = ['http://somesite.som', 'http://localhost:5500'];
+var whitelist = ['https://d1sc0.github.io', 'http://localhost:5500'];
 var corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
@@ -18,7 +18,7 @@ var corsOptions = {
 };
 
 // route for airtable /api/airquote/count
-router.get('/count', cors(), (req, res, next) => {
+router.get('/count', cors(corsOptions), (req, res, next) => {
   request(
     {
       url:
@@ -38,7 +38,7 @@ router.get('/count', cors(), (req, res, next) => {
 });
 
 // route for airtable random airquote /api/airquote/random
-router.get('/random', cors(), (req, res, next) => {
+router.get('/random', cors(corsOptions), (req, res, next) => {
   //1st request to get array of all quotes
   request(
     {
