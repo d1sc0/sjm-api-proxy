@@ -1,7 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const request = require('request');
-
+const dotenv = require('dotenv');
+dotenv.config();
 const app = express();
 
 // set dynamic CORS whitelist
@@ -39,6 +40,25 @@ app.get('/quote', cors(corsOptions), (req, res, next) => {
     {
       url:
         'http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json',
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+//route for airtable API
+app.get('/airtable', cors(corsOptions), (req, res, next) => {
+  request(
+    {
+      url: 'https://api.airtable.com/v0/appbg8J7uh1qMZme5/quotes',
+      headers: {
+        Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
+      },
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
