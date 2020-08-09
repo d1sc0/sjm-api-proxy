@@ -5,7 +5,7 @@ const app = express();
 
 // set origin headers for CORS
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://localhost');
+  res.header('Access-Control-Allow-Origin', 'http://localhost:5500');
   next();
 });
 
