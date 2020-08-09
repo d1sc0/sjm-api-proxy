@@ -46,5 +46,6 @@ app.get('/quote', cors(corsOptions), (req, res, next) => {
   );
 });
 
+// listen here
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
