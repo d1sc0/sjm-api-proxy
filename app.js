@@ -5,7 +5,11 @@ const request = require('request');
 const app = express();
 
 // set dynamic CORS whitelist
-var whitelist = ['http://localhost', 'http://localhost:5500'];
+var whitelist = [
+  'http://localhost:3000',
+  'http://localhost',
+  'http://localhost:5500',
+];
 var corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
