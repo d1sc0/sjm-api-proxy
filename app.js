@@ -7,7 +7,7 @@ const app = express();
 
 // set dynamic CORS whitelist
 var whitelist = [
-  'http://localhost:3000',
+  'http://127.0.0.1',
   'http://localhost',
   'http://localhost:5500',
 ];
