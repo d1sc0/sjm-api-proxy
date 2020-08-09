@@ -6,12 +6,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 // set dynamic CORS whitelist
-var whitelist = [
-  'http://localhost',
-  'http://localhost:5500',
-  'http://127.0.0.1:8080',
-  'http://localhost:8080',
-];
+var whitelist = ['http://somesite.som', 'http://localhost:5500'];
 var corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
@@ -23,7 +18,7 @@ var corsOptions = {
 };
 
 //route for airtable /api/airquote/count
-router.get('/count', cors(corsOptions), (req, res, next) => {
+router.get('/count', cors(), (req, res, next) => {
   request(
     {
       url:
