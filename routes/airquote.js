@@ -7,7 +7,7 @@ dotenv.config();
 
 // set dynamic CORS whitelist
 var whitelist = [
-  'http://127.0.0.1',
+  'http://127.0.0.1:8080',
   'http://localhost',
   'http://localhost:5500',
 ];
@@ -27,6 +27,26 @@ router.get('/count', cors(corsOptions), (req, res, next) => {
     {
       url:
         'https://api.airtable.com/v0/appbg8J7uh1qMZme5/quoteStats/recsvt1KqLxrX2tr1',
+      headers: {
+        Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
+      },
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+// route for airtable random airquote /api/airquote/random
+router.get('/random', cors(corsOptions), (req, res, next) => {
+  request(
+    {
+      url:
+        'https://api.airtable.com/v0/appbg8J7uh1qMZme5/quotes?fields%5B%5D=linktoStats',
       headers: {
         Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
       },
