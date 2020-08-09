@@ -38,7 +38,7 @@ router.get('/count', cors(), (req, res, next) => {
 });
 
 // route for airtable random airquote /api/airquote/random
-router.get('/random', cors(corsOptions), (req, res, next) => {
+router.get('/random', cors(), (req, res, next) => {
   request(
     {
       url:
