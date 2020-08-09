@@ -5,7 +5,7 @@ const request = require('request');
 const dotenv = require('dotenv');
 dotenv.config();
 
-// set dynamic CORS whitelist
+// set dynamic CORS whitelist - UPDATE cors() WITH cors(CorsOptions) to restrict
 var whitelist = ['http://somesite.som', 'http://localhost:5500'];
 var corsOptions = {
   origin: function (origin, callback) {
