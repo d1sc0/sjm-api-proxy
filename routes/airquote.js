@@ -22,7 +22,7 @@ router.get('/count', cors(), (req, res, next) => {
   request(
     {
       url:
-        'https://api.airtable.com/v0/appRWoScohjJUMsuG/quoteStats/recsvt1KqLxrX2tr1',
+        'https://api.airtable.com/v0/appRWoScohjJUMsuG/quoteStats/rec8bJaPkLPK5PzHC',
       headers: {
         Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
       },
@@ -43,7 +43,7 @@ router.get('/random', cors(), (req, res, next) => {
   request(
     {
       url:
-        'https://api.airtable.com/v0/appRWoScohjJUMsuG/quoteStats/recsvt1KqLxrX2tr1',
+        'https://api.airtable.com/v0/appRWoScohjJUMsuG/quoteStats/rec8bJaPkLPK5PzHC',
       headers: {
         Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
       },
