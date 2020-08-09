@@ -57,7 +57,7 @@ router.get('/random', cors(), (req, res, next) => {
       const quotes = data.fields.linkedQuotes;
       const random = Math.floor(Math.random() * quotes.length);
       const quoteid = quotes[random];
-      console.log(quoteid);
+
       // second request to get the random quote
       request(
         {
